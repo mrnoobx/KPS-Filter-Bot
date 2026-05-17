@@ -18,14 +18,14 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "8892068525:AAFgsvGZt8eYoA4iqsBBeQGm3qauFYd
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
-PICS = (environ.get('PICS', 'https://graph.org/file/ce1723991756e48c35aa1.jpg')).split() #SAMPLE PIC
+PICS = (environ.get('PICS', 'https://graph.org/file/ceba7e4c839a3a20c0ed6-0c3070a760489cb680.jpg https://graph.org/file/e54ea154e99119547d626-4df2f3a10e68c568ff.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/b69af2db776e4e85d21ec.jpg")
-WEL_VID = environ.get("WEL_VID", "https://t.me/How_To_Open_Linkl")
+MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/noob_project")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
-# Admins, Channels & Users
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', ''))
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+# Admins, Channels
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1003728398597'))
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5326209062').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
@@ -47,7 +47,7 @@ DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in enviro
 # MongoDB information
 MULTIPLE_DATABASE = bool(environ.get('MULTIPLE_DATABASE', False)) # Set True or False
 
-DATABASE_URI = environ.get('DATABASE_URI', "") # IF Multiple Database Is False Then Fill Only This Database Url.
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://mrnoobx:DAZCdTczVWyECi04@cluster0.sedgwxy.mongodb.net/?retryWrites=true&w=majority") # IF Multiple Database Is False Then Fill Only This Database Url.
 if MULTIPLE_DATABASE == False:
     USER_DB_URI = DATABASE_URI
     OTHER_DB_URI = DATABASE_URI
@@ -59,8 +59,8 @@ else:
     FILE_DB_URI = environ.get('FILE_DB_URI', "") # This Db Is For File Data Store
     SEC_FILE_DB_URI = environ.get('SEC_FILE_DB_URI', "") # This Db is for File Data Store When First Db Is Going To Be Full.
     
-DATABASE_NAME = environ.get('DATABASE_NAME', "techvjautobot")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'techvjcollection')
+DATABASE_NAME = environ.get('DATABASE_NAME', "mrnoobx")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Files')
 
 # Filter Keywords for Unwanted Files (e.g., "PreDVD")
 filter_keywords = environ.get('FILTER_KEYWORDS', "Clean Aud,PreDVD,DVDScr").split(',')
@@ -167,7 +167,7 @@ if 'DYNO' in environ:
     ON_HEROKU = True
 else:
     ON_HEROKU = False
-URL = environ.get("URL", "https://testofvjfilter-1fa60b1b8498.herokuapp.com/")
+URL = environ.get("URL", "")
 
 
 # Rename Info : If True Then Bot Rename File Else Not
